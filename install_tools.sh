@@ -5,6 +5,9 @@
 sudo apt-get update && sudo apt upgrade -y
 # TODO for the p10k theme install Meslo LGS NF font
 sudo apt install -y zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 sudo apt install -y unzip
 # install helm
  sudo curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && sudo chmod 700 get_helm.sh && sudo ./get_helm.sh
