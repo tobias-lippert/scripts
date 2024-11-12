@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# This script still assumes it's running on wsl that's why we neither install kubectl nor docker because it's
+# provided by Docker Desktop for Windows
+sudo apt-get update && sudo apt upgrade -y
+# TODO for the p10k theme install Meslo LGS NF font
+sudo apt install -y zsh
+sudo apt install -y unzip
+# install helm
+ sudo curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && sudo chmod 700 get_helm.sh && sudo ./get_helm.sh
+ # install azure cli
+ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+ # install aws cli
+sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo unzip awscliv2.zip
+sudo ./aws/install
+ # install jq
+sudo apt install -y jq
+
+ # install terraform
+sudo apt-get install -y gnupg software-properties-common
+sudo wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+sudo gpg --no-default-keyring \
+--keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+--fingerprint
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt-get install -y terraform
+# notary
+sudo apt install -y notary
+
+sudo apt autoremove -y
