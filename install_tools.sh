@@ -2,7 +2,7 @@
 
 # This script still assumes it's running on wsl that's why we neither install kubectl nor docker because it's
 # provided by Docker Desktop for Windows
-#sudo apt-get update && sudo apt upgrade -y
+sudo apt-get update && sudo apt upgrade -y
 # TODO for the p10k theme install Meslo LGS NF font
 # install zsh and make it the default shell
 sudo apt install -y zsh
